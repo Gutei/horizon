@@ -14,10 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.conf import settings
+from django.conf.urls import url, include
+from django.conf.urls.static import static
+from zonreimage import views
 
-admin.site.site_header = 'Administraion Tools'
+app_name = 'Horizon Resize Images'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+                  url(r'^$', views.index, name='index'),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+              + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
