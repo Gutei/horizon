@@ -1,6 +1,56 @@
+{% load static %}
 <html>
-<head></head>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Re-Image</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'zonreimage/css/reimage.css' %}">
+	<link rel="stylesheet" href="{% static 'zonreimage/css/customrange.css' %}">
+</head>
 <body>
-    <h1>hELLO !!!</h1>
+{% if img %}
+	<h1>
+		<a class="login100-form-btn text-white btn" href="{% get_media_prefix %}{{img}}" download>Download</a>
+	</h1>
+{% endif %}
+
+	<form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+		<main class="main_full">
+			<div class="container">
+				<div class="panel">
+					<div class="button_outer">
+						<div class="btn_upload">
+							<input type="file" id="upload_file" name="zon01" accept="image/*">
+							Upload Image
+						</div>
+						<div class="processing_bar"></div>
+						<div class="success_box"></div>
+					</div>
+				</div>
+				<div class="error_msg"></div>
+				<div class="uploaded_file_view" id="uploaded_view">
+					<span class="file_remove">X</span>
+				</div>
+				<center>
+
+						<div class="custom-container" style="display:none;" id="b_range">
+							<h2>Quality</h2>
+							<div class="range-container">
+								<input type="range" id="range" max="100" min="0" name="zon02">
+								<label for="range">50</label>
+							</div>
+						</div>
+
+						<div class="button_compress" style="display: none;" id="b_compress">
+							<button type="submit" class="button_compress" style=""><span style="color: #f6f6f6; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1;">Compress</span></button>
+						</div>
+				</center>
+			</div>
+		</main>
+	</form>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="{% static 'zonreimage/js/reimage.js' %}"></script>
+	<script src="{% static 'zonreimage/js/customrange.js' %}"></script>
 </body>
 </html>

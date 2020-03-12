@@ -68,6 +68,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'horizon.wsgi.application'
 
+FILE_UPLOAD_HANDLERS = [
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler"
+]
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
