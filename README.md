@@ -2,7 +2,7 @@
 
 This project for handling large image when uploading file.
 
-#Installation:
+# Installation:
 
 Clone this repository, Extract the file that you've downloaded.
 
