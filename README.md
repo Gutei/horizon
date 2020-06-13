@@ -26,7 +26,7 @@ Clone this repository, Extract the file that you've downloaded.
 
 Ubuntu (i'm using ubuntu 20.04):
 ```
-$ python3.8 -m venv venv
+$ python3.6 -m venv venv
 ```
 ## then source to this virtual environment:
 ```
